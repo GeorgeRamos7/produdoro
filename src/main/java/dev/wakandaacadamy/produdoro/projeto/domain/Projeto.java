@@ -1,8 +1,6 @@
-package dev.wakandaacadamy.produdoro.usuario.domain;
+package dev.wakandaacadamy.produdoro.projeto.domain;
 
 import java.util.UUID;
-
-import javax.validation.constraints.Email;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -13,31 +11,29 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Document(collection = "Usuario")
-public class Usuario {
+@Document(collection = "Projeto")
+public class Projeto {
 	@Getter
 	@Id
+	private UUID idProjeto;
+	
+	@Getter
+	private String nome;
+	
+	@Getter
+	private String descricao;
+	
+	@Getter
+	@Indexed
+	private UUID idArea;
+	
+	@Getter
+	@Indexed
 	private UUID idUsuario;
 	
-	@Getter
-	@Email
-	@Indexed
-	private String email;
-	
-	@Getter
-	private ConfiguracaoUsuario configuracao;
-	
-	@Getter
-	@Builder.Default
-	private StatusUsuario status = StatusUsuario.FOCO;
-	
-	@Getter
-	@Builder.Default
-	private Integer quantidadePomodorosPausaCurta = 0;
-	
+
 
 }
