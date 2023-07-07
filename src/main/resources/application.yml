@@ -1,1 +1,11 @@
-
+server:
+ servlet:
+   context-path: /produdoro/api
+   
+   
+spring:
+  data:
+     mongodb:
+      authenticarion-database: admin
+      uri: ${MONGO_DB_URI:mongodb+srv://eozuchihazt:eozuchihazt@cluster0.rcbxix2.mongodb.net/Cluster0?retryWrites=true&w=majority}
+      auto-index-creation: true
